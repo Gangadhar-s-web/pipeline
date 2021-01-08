@@ -13,7 +13,7 @@ pipeline {
     stage ('deploy') { 
     parallel {
     stage ('deploy1') {
-    agent { label 'slave-02' }
+    agent { label 'slave' }
        steps {
           sh '''
                   echo "this is deploy stage"
@@ -22,7 +22,7 @@ pipeline {
              }
     }
       stage ('deploy2') {
-    agent { label 'slave-02' }
+    agent { label 'slave' }
        steps {
           sh '''
                   echo "this is deploy stage"
