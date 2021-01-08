@@ -17,7 +17,6 @@ pipeline {
 						sleep 2
 				   '''	
 			}	   
-		}
 		
 		parallel {
 		stage ('deploy1') {
@@ -38,6 +37,7 @@ pipeline {
 						sleep 2
 				   '''	
 			}	   
+		}
 		}
 		}
 		stage ('test') {
