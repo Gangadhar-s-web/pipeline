@@ -17,7 +17,7 @@ pipeline {
 						sleep 2
 				   '''	
 			}	   
-		
+		}
 		parallel {
 		stage ('deploy1') {
 			agent { label 'slave1' }
@@ -39,7 +39,7 @@ pipeline {
 			}	   
 		}
 		}
-		}
+		
 		stage ('test') {
 			steps {
 				sh '''
