@@ -1,22 +1,14 @@
 pipeline {
-	agent any 
+	agent none 
 	stages {
 		stage ('build') {
+			agent { label 'slave1' }
 			steps {
 				sh '''
 						echo "this is build stage"
 						sleep 2
 				   '''	
 			} 
-		}
-		
-		stage ('deploy') {
-			steps {
-				sh '''
-						echo "this is deploy stage"
-						sleep 2
-				   '''	
-			}	   
 		}
 		parallel {
 		stage ('deploy1') {
@@ -39,9 +31,10 @@ pipeline {
 			}	   
 		}
 		}
-		
 		stage ('test') {
+			agent { label 'slave2' }
 			steps {
+				git 'https://github.com/Gangadhar-s-web/pipeline.git'
 				sh '''
 						echo "this is test stage"
 						sleep 2
