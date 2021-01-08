@@ -34,7 +34,6 @@ pipeline {
 		stage ('test') {
 			agent { label 'slave2' }
 			steps {
-				git 'https://github.com/Gangadhar-s-web/pipeline.git'
 				sh '''
 						echo "this is test stage"
 						sleep 2
